@@ -1,8 +1,8 @@
 class FfmpegLite < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.3.tar.xz"
-  sha256 "1d0ad06484f44bcb97eba5e93c40bcb893890f9f64aeb43e46cd9bb4cbd6795d"
+  url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
+  sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   depends_on "nasm" => :build
