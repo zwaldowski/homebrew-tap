@@ -1,9 +1,16 @@
 class FfmpegLite < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
-  sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.tar.xz"
+  sha256 "06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909"
+  license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
+
+  livecheck do
+    url "https://ffmpeg.org/download.html"
+    regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
@@ -16,7 +23,7 @@ class FfmpegLite < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  conflicts_with "ffmpeg", :because => "both install `ffmpeg` binaries"
+  conflicts_with "ffmpeg", because: "both install `ffmpeg` binaries"
 
   def install
     args = %W[
@@ -39,7 +46,7 @@ class FfmpegLite < Formula
     system "make", "install"
 
     # Fix for Non-executables that were installed to bin/
-    mv bin/"python", pkgshare/"python", :force => true
+    mv bin/"python", pkgshare/"python", force: true
   end
 
   test do
