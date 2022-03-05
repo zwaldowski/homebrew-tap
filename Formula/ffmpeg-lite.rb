@@ -1,15 +1,18 @@
 class FfmpegLite < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz"
-  sha256 "eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02"
+  url "https://ffmpeg.org/releases/ffmpeg-5.0.tar.xz"
+  sha256 "51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298"
   license "GPL-2.0-or-later"
-  revision 1
-  head "https://github.com/FFmpeg/FFmpeg.git"
+  head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
     url "https://ffmpeg.org/download.html"
     regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  bottle do
+    rebuild 1
   end
 
   depends_on "nasm" => :build
@@ -28,7 +31,7 @@ class FfmpegLite < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-pthreads
+      --enable-shared
       --enable-version3
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
@@ -37,10 +40,12 @@ class FfmpegLite < Formula
       --enable-libmp3lame
       --enable-libx264
       --enable-libx265
-      --enable-videotoolbox
-      --disable-libjack
-      --disable-indev=jack
+      --disable-ffprobe
+      --disable-static
     ]
+
+    # Needs corefoundation, coremedia, corevideo
+    args << "--enable-neon" if Hardware::CPU.arm?
 
     system "./configure", *args
     system "make", "install"
