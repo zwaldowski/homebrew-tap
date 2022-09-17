@@ -13,7 +13,7 @@ class FfmpegLite < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/zwaldowski/tap"
-    sha256 big_sur: "154b4d70bb509344526e8b4047651a53fdfa71c0f66fabb0c2890d47ebe28eab"
+    sha256 big_sur: "fe8336725f27d466ffc1775a0846b31c6c233ddfb1cd536bcd43c7f45a24d338"
   end
 
   depends_on "nasm" => :build
