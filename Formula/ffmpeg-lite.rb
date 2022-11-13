@@ -1,8 +1,8 @@
 class FfmpegLite < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-5.1.1.tar.xz"
-  sha256 "95bf3ff8c496511e71e958fb249e663c8c9c3de583c5bebc0f5a9745abbc0435"
+  url "https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.xz"
+  sha256 "619e706d662c8420859832ddc259cd4d4096a48a2ce1eefd052db9e440eef3dc"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -16,7 +16,6 @@ class FfmpegLite < Formula
     sha256 big_sur: "fe8336725f27d466ffc1775a0846b31c6c233ddfb1cd536bcd43c7f45a24d338"
   end
 
-  depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "lame"
   depends_on "x264"
@@ -26,6 +25,10 @@ class FfmpegLite < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   conflicts_with "ffmpeg", because: "both install `ffmpeg` binaries"
 
