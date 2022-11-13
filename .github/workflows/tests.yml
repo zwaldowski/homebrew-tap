@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   test-bot:
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -17,8 +17,8 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ runner.os }}-rubygems-
+          key: ${{ runner.os }}-rubygems-1-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-1-
 
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
@@ -30,7 +30,7 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae --root-url=https://ghcr.io/v2/zwaldowski/tap
+      - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
