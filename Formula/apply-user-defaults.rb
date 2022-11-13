@@ -6,6 +6,11 @@ class ApplyUserDefaults < Formula
   license "Apache-2.0"
   head "https://github.com/zero-sh/apply-user-defaults.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/zwaldowski/tap"
+    sha256 cellar: :any_skip_relocation, big_sur: "a8c1a1763eabaaa3774eb8806622be8239f56f331cef166efd3c0e00c97baa6c"
+  end
+
   depends_on "rust" => :build
 
   def install
