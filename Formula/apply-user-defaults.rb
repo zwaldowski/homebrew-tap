@@ -4,6 +4,7 @@ class ApplyUserDefaults < Formula
   url "https://github.com/zero-sh/apply-user-defaults/archive/refs/tags/0.1.2.tar.gz"
   sha256 "2c7c1e4e8ae0fbf1765a5a019ffbd45d185334e4c21e6593b0258198fee5dd0f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/zero-sh/apply-user-defaults.git", branch: "master"
 
   bottle do
