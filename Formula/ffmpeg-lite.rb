@@ -1,8 +1,8 @@
 class FfmpegLite < Formula
-  desc "Play, record, convert, and stream audio and video"
+  desc "Convert audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.xz"
-  sha256 "619e706d662c8420859832ddc259cd4d4096a48a2ce1eefd052db9e440eef3dc"
+  url "https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz"
+  sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -12,8 +12,7 @@ class FfmpegLite < Formula
   end
 
   bottle do
-    root_url "https://ghcr.io/v2/zwaldowski/tap"
-    sha256 big_sur: "8719c4a89e388bf12fd1c1998b7ce898860f829297bb8419bcc87b402a528da1"
+    rebuild 1
   end
 
   depends_on "pkg-config" => :build
@@ -35,7 +34,6 @@ class FfmpegLite < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-shared
       --enable-version3
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
@@ -44,12 +42,12 @@ class FfmpegLite < Formula
       --enable-libmp3lame
       --enable-libx264
       --enable-libx265
+      --enable-libxml2
       --disable-ffprobe
-      --disable-static
     ]
 
     # Needs corefoundation, coremedia, corevideo
-    args << "--enable-videotoolbox" if OS.mac?
+    args += %w[--enable-videotoolbox --enable-audiotoolbox] if OS.mac?
     args << "--enable-neon" if Hardware::CPU.arm?
 
     system "./configure", *args
