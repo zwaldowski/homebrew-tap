@@ -12,7 +12,8 @@ class FfmpegLite < Formula
   end
 
   bottle do
-    rebuild 1
+    root_url "https://github.com/zwaldowski/homebrew-tap/releases/download/ffmpeg-lite-6.0"
+    sha256 monterey: "1ff28918a3d2e5ab1f93164bf35a580543317aed805d44e82804667eb5c3569c"
   end
 
   depends_on "pkg-config" => :build
