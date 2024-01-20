@@ -1,8 +1,8 @@
 class FfmpegLite < Formula
   desc "Convert audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz"
-  sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
+  url "https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz"
+  sha256 "8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -12,8 +12,7 @@ class FfmpegLite < Formula
   end
 
   bottle do
-    root_url "https://github.com/zwaldowski/homebrew-tap/releases/download/ffmpeg-lite-6.0"
-    sha256 monterey: "1ff28918a3d2e5ab1f93164bf35a580543317aed805d44e82804667eb5c3569c"
+    rebuild 1
   end
 
   depends_on "pkg-config" => :build
