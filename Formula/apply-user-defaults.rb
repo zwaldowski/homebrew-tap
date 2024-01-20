@@ -8,7 +8,7 @@ class ApplyUserDefaults < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/zwaldowski/tap"
-    sha256 cellar: :any_skip_relocation, big_sur: "a8c1a1763eabaaa3774eb8806622be8239f56f331cef166efd3c0e00c97baa6c"
+    sha256 cellar: :any_skip_relocation, ventura: "df9bf2dac12866038218b6a9fcfdb8a538b76d2b9f0f71e12d2fa94ed4a5af01"
   end
 
   depends_on "rust" => :build
