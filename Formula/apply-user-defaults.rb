@@ -1,8 +1,8 @@
 class ApplyUserDefaults < Formula
   desc "Small tool to set macOS user defaults from a YAML file"
   homepage "https://github.com/zero-sh/apply-user-defaults"
-  url "https://github.com/zero-sh/apply-user-defaults/archive/refs/tags/0.1.2.tar.gz"
-  sha256 "2c7c1e4e8ae0fbf1765a5a019ffbd45d185334e4c21e6593b0258198fee5dd0f"
+  url "https://github.com/zero-sh/apply-user-defaults/archive/refs/tags/0.2.0.tar.gz"
+  sha256 "0635ad13c040843bbb020c0782de1a27c66af18d5a78b6963f0cea1da09b6eb2"
   license "Apache-2.0"
   head "https://github.com/zero-sh/apply-user-defaults.git", branch: "master"
 
