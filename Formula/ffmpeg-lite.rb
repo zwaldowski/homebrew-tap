@@ -1,10 +1,9 @@
 class FfmpegLite < Formula
   desc "Convert audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz"
-  sha256 "8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968"
+  url "https://ffmpeg.org/releases/ffmpeg-7.0.tar.gz"
+  sha256 "943a2a28044947c17a905c39075494b0da46ec0795224c2c61eff986518321eb"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -54,9 +53,6 @@ class FfmpegLite < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    # Fix for Non-executables that were installed to bin/
-    mv bin/"python", pkgshare/"python", force: true
   end
 
   test do
