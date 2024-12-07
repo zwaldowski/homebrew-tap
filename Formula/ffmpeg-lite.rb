@@ -1,8 +1,8 @@
 class FfmpegLite < Formula
   desc "Convert audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.0.tar.gz"
-  sha256 "943a2a28044947c17a905c39075494b0da46ec0795224c2c61eff986518321eb"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz"
+  sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -14,7 +14,6 @@ class FfmpegLite < Formula
   bottle do
     root_url "https://ghcr.io/v2/zwaldowski/tap"
     rebuild 1
-    sha256 arm64_sonoma: "0a928b76fe39279b86a0a5afcc70c5df7e229d6349eb6a2b2cbafd5ba1582e68"
   end
 
   depends_on "pkg-config" => :build
