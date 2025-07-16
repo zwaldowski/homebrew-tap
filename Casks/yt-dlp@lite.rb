@@ -1,4 +1,4 @@
-cask "yt-dlp" do
+cask "yt-dlp@lite" do
   version "2024.03.10"
   sha256 "4620d1d3a73510e158e3fb65a8f4cb6ee54585ddc711fc8c1bc4fa3cee974cac"
 
