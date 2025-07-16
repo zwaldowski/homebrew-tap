@@ -4,6 +4,7 @@ class FfmpegLite < Formula
   url "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz"
   sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -59,6 +60,6 @@ class FfmpegLite < Formula
     # Create an example mp4 file
     mp4out = testpath/"video.mp4"
     system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_predicate mp4out, :exist?
+    assert_path_exists mp4out
   end
 end
