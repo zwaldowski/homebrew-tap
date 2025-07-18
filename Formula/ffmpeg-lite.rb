@@ -14,7 +14,7 @@ class FfmpegLite < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/zwaldowski/tap"
-    sha256 arm64_sequoia: "643de05adef523a8f31352de674ea7c2153c8914ab24c8d71a54bd721e3dba0e"
+    sha256 arm64_sequoia: "180c5483ece17bd74c079dd2e06cbddd182f3d2a097aa568e51189e4d59e7ebe"
   end
 
   depends_on "pkg-config" => :build
