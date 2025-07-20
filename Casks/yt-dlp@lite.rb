@@ -1,6 +1,6 @@
 cask "yt-dlp@lite" do
-  version "2024.03.10"
-  sha256 "4620d1d3a73510e158e3fb65a8f4cb6ee54585ddc711fc8c1bc4fa3cee974cac"
+  version "2025.06.30"
+  sha256 "e2273b717c09c87413fc8cc2bedea5ed436bdfd9b2cf62b5458d7301aa5e769b"
 
   url "https://github.com/yt-dlp/yt-dlp/releases/download/#{version}/yt-dlp_macos"
   name "yt-dlp"
