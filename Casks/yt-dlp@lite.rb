@@ -1,6 +1,6 @@
 cask "yt-dlp@lite" do
-  version "2025.06.30"
-  sha256 "e2273b717c09c87413fc8cc2bedea5ed436bdfd9b2cf62b5458d7301aa5e769b"
+  version "2025.08.20"
+  sha256 "835d7709542170f52170184dbbfcf941963e66ed50be2ccf1431cba40ec6c7ba"
 
   url "https://github.com/yt-dlp/yt-dlp/releases/download/#{version}/yt-dlp_macos"
   name "yt-dlp"
@@ -12,8 +12,6 @@ cask "yt-dlp@lite" do
     strategy :github_latest
   end
 
-  auto_updates true
-  conflicts_with formula: "homebrew/core/yt-dlp"
   depends_on macos: ">= :big_sur"
 
   binary "yt-dlp_macos", target: "yt-dlp"
