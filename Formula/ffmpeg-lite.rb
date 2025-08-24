@@ -30,8 +30,6 @@ class FfmpegLite < Formula
     depends_on "nasm" => :build
   end
 
-  conflicts_with "homebrew/core/ffmpeg", because: "both install `ffmpeg` binaries"
-
   def install
     args = %W[
       --prefix=#{prefix}

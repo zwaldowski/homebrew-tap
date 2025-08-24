@@ -14,7 +14,6 @@ cask "hopper-disassembler@trial" do
   end
 
   auto_updates true
-  conflicts_with formula: "homebrew/cask/hopper-disassembler"
   depends_on macos: ">= :high_sierra"
 
   app "Hopper Disassembler v4.app"
