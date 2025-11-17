@@ -1,10 +1,9 @@
 class FfmpegLite < Formula
   desc "Convert audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz"
-  sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
+  url "https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz"
+  sha256 "b2751fccb6cc4c77708113cd78b561059b6fa904b24162fa0be2d60273d27b8e"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -55,9 +54,14 @@ class FfmpegLite < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
     assert_path_exists mp4out
+
+    # Re-encode it in HEVC/Matroska
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+    assert_path_exists mkvout
   end
 end
